@@ -35,7 +35,7 @@ class ExtractorService():
             
             first_reading = {}
             
-            first_reading['title'] = all_first_reading[0].get_text()
+            first_reading['title'] = all_first_reading[0].get_text() or '1ª Leitura'
             first_reading['head'] = all_first_reading[1].get_text()
             first_reading['footer'] = all_first_reading[-2].get_text().replace("- ","")
             first_reading['footer_response'] = all_first_reading[-1].get_text().replace("- ","")
@@ -58,7 +58,7 @@ class ExtractorService():
             
             psalm = {}
 
-            psalm['title'] = all_psalm[0].get_text()
+            psalm['title'] = all_psalm[0].get_text() or 'Salmo'
             psalm['response'] = all_psalm[1].get_text().replace("— ","")
 
             psalm['all_html'] = ' '.join(p.prettify() for p in all_psalm)
@@ -84,7 +84,7 @@ class ExtractorService():
             
             second_reading = {}
             
-            second_reading['title'] = all_second_reading[0].get_text()
+            second_reading['title'] = all_second_reading[0].get_text() or '2ª Leitura'
             second_reading['head'] = all_second_reading[1].get_text()
             second_reading['footer'] = all_second_reading[-2].get_text().replace("- ","")
             second_reading['footer_response'] = all_second_reading[-1].get_text().replace("- ","")
@@ -107,7 +107,7 @@ class ExtractorService():
 
             gospel = {}
             
-            gospel['title'] = all_gospel[0].get_text()
+            gospel['title'] = all_gospel[0].get_text() or 'Evangelho'
             gospel['head'] = all_gospel[3].get_text().replace("— ","")
             gospel['head_response'] = all_gospel[4].get_text().replace("— ","")
             gospel['footer'] = all_gospel[-2].get_text().replace(" — ","")
